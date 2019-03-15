@@ -10,7 +10,7 @@ client.on('ready', () => {
 client.on('message', message => { // هاذا للبرودكسات
         var prefix = '!'; // هنا تقدر تغير البرفكس
 	var command = message.content.split(" ")[0];
-	if(command == prefix + 'bc') { // الكوماند *bc
+	if(command == prefix + 'bc') { // الكوماند !bc
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don`t have **MANAGE_MESSAGES** permission!");
 		var args = message.content.split(' ').slice(1).join(' ');
 		if(message.author.bot) return;
@@ -18,7 +18,7 @@ client.on('message', message => { // هاذا للبرودكسات
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don`t have **MANAGE_MESSAGES** permission!");
 		
 		let bcSure = new Discord.RichEmbed()
-		.setTitle(`:mailbox_with_mail: **سرفر الدينامك هل انت متاكد انك تريد ارسال الرسالة** ${message.guild.memberCount} **عضو**`)
+		.setTitle(`:mailbox_with_mail: **هل انت متأكد انك تريد ارسال رسالتك الى** ${message.guild.memberCount} **عضو**`)
 		.setThumbnail(client.user.avatarURL)
 		.setColor('RANDOM')
 		.setDescription(`**\n:envelope: ➥ رسالتك**\n\n${args}`)
@@ -47,7 +47,7 @@ client.on('message', message => { // هاذا للبرودكسات
             // m.send(`[${m}]`);
             m.send(`${m}`,{embed: bc});
         });
-				message.channel.send(`:timer: ** من طرف سرفر دينامك يتم ارسال الرسالة الى** \`\`${message.guild.memberCount}\`\` **عضو**`).then(msg => msg.delete(5000));
+				message.channel.send(`:timer: **يتم الان الارسال الى** \`\`${message.guild.memberCount}\`\` **عضو**`).then(msg => msg.delete(5000));
 				msg.delete();
 			})
 			dontSendBC.on('collect', r => {
